@@ -1,0 +1,104 @@
+.mainDescription{
+	text-align: center;
+	font-size: 18px;
+	margin: 0 90px;
+	color:#5D676B;
+	font-family: 'Book Antiqua', 'Lucida Bright', Arial;
+}
+
+.mainHeading{
+	color:#5D676B;
+	font-family: Georgia, Helvetica, Arial;
+	background-color: #87ceeb;
+	padding: 15px 0;
+	border: solid 1px #69A1B8;
+}
+
+.proceedButton{
+	margin-top: 50px;
+	height: 80px;
+	border: solid 1px black;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, .5);
+}
+
+.prevButton{
+	width: 110px;
+	border: solid 1px black;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, .5);
+	float:left;
+}
+
+.nextButton{
+	width: 110px;
+	border: solid 1px black;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, .5);
+	float:right;
+}
+
+.buttonContainer{
+	max-width: 80%;
+}
+
+
+
+.topTitle{
+	text-align: center;
+	font-size: 30px;
+	margin: 0 90px;
+	color:#5D676B;
+	font-family: 'Book Antiqua', 'Lucida Bright', Arial;
+}
+
+body{
+	background-color: skyblue;
+background-image: url("./images/nice-snow.png");
+}
+
+.scale-up-center {
+	animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-up-center {
+	0% {
+	  transform: scale(0);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+
+  table, tr, td, th{
+	  border: black 2px solid;
+  }
+
+  .infoTableText{
+	  text-align: center;
+  }
+
+  .infoTableWidth{
+	  width:300px;
+	  text-align:center;
+  }
+
+
+  .largeCheckBox{
+	  width:25px;
+	  height:25px;
+  }
+
+  .newTitleTextArea{
+	  font-size: 16px;
+	  font-family: 'Book Antiqua', 'Lucida Bright', Arial;
+  }
+
+  .newTitleTextBox{
+	font-size: 16px;
+	font-family: 'Book Antiqua', 'Lucida Bright', Arial;
+	width: 250px;
+}
+
+.DayTableWidth{
+	width:55px;
+	height: 25px;
+	text-align:center;
+}
