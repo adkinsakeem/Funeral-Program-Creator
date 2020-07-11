@@ -1,5 +1,6 @@
 import React from "react";
 import Switch from "./Switch";
+import DateTimePicker from "./DateTimePicker";
 
 
 function InfoBlocks(props){
@@ -25,9 +26,25 @@ function InfoBlocks(props){
     let defaultTitle = props.title;
     let monthListID = props.blockName+"monthID";
 
+    var pickerOptions = {
+        now: "12:35", //hh:mm 24 hour format only, defaults to current time
+        twentyFour: false,  //Display 24 hour format, defaults to false
+        upArrow: 'wickedpicker__controls__control-up',  //The up arrow class selector to use, for custom CSS
+        downArrow: 'wickedpicker__controls__control-down', //The down arrow class selector to use, for custom CSS
+        close: 'wickedpicker__close', //The close class selector to use, for custom CSS
+        hoverState: 'hover-state', //The hover state class to use, for custom CSS
+        title: 'Timepicker', //The Wickedpicker's title,
+        showSeconds: false, //Whether or not to show seconds,
+        secondsInterval: 1, //Change interval for seconds, defaults to 1,
+        minutesInterval: 1, //Change interval for minutes, defaults to 1
+        beforeShow: null, //A function to be called before the Wickedpicker is shown
+        show: null, //A function to be called when the Wickedpicker is shown
+        clearable: false, //Make the picker's input clearable (has clickable "x")
+    };
+
 
     function toggleDisabled(){
-        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
             addToDateArray(prevValue=>{
                 if(dateArray.using === true){
                     props.dataArray.using = false;
@@ -75,7 +92,7 @@ function InfoBlocks(props){
         let targetName = event.target.name;
 
 
-        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
             var e = document.getElementById(monthListID);
             var targetMonthName = e.options[e.selectedIndex].value;
             addToDateArray(prevValue=>{
@@ -150,7 +167,15 @@ function InfoBlocks(props){
 
     function getTextField(){
 
-        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+        if(props.blockName === "timeOfService1"){
+            return(
+                <DateTimePicker mode="time"/>
+            );
+        }else if(props.blockName === "obituary" || props.blockName === "scripture" || props.blockName === "acknowledgements" || props.blockName === "poem"){
+            return(
+                <textarea rows="6" cols="50" name={props.blockName} form="usrform" placeholder="Obituary" disabled={dateArray.using}></textarea>
+            );
+        }else if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
             return(
                 <form>
                 <table>
@@ -237,7 +262,7 @@ function InfoBlocks(props){
         function checkboxTitleChange(event){
             let checkBoxChecked = false;
             let checkBoxName = props.blockName + "CheckBox";
-            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
                 checkBoxChecked = dateArray.changeTitle;
             }else{
                 checkBoxChecked = infoArray.changeTitle;
@@ -251,7 +276,7 @@ function InfoBlocks(props){
                 onChange={()=>{
                     if(checkBoxChecked === true){
                         props.dataArray.title = defaultTitle;
-                        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+                        if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
                             addToDateArray(prevValue=>{
                                 return {info: prevValue.info,
                                     changeTitle: false,
@@ -271,7 +296,7 @@ function InfoBlocks(props){
                                 }
 
                             }else{
-                                if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+                                if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
                                     addToDateArray(prevValue=>{
                                         return {info: prevValue.info,
                                             changeTitle: true,
@@ -302,7 +327,7 @@ function InfoBlocks(props){
 
                         function addTitle(event){
                             var newTitleValue = event.target.value;
-                            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+                            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
                                 addToDateArray(prevValue=>{
                                     props.dataArray.using = prevValue.using;
                                     props.dataArray.changeTitle = prevValue.changeTitle;
@@ -341,7 +366,7 @@ function InfoBlocks(props){
                         }
 
                         function changeTitleChecked(){
-                            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath"){
+                            if(props.blockName === "dateOfBirth" || props.blockName === "dateOfDeath" || props.blockName === "serviceDate"){
                                 if(dateArray.changeTitle === true){
                                     //props.dataArray.changeTitle = true;
                                     let newTitle = (props.blockName+"NewTitle");

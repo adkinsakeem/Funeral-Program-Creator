@@ -12,7 +12,22 @@ function App() {
   var informationJSONArray = {
     "nameOfDeceased":{title:"", using: true, changeTitle: false, info:""},
     "dateOfBirth":{title:"", using: true, changeTitle: false, info:{Month: "Jan",Day: "1",Year: "1900"}},
-    "dateOfDeath":{title:"", using: true, changeTitle: false, info:{Month: "Jan",Day: "1",Year: "1900"}}
+    "dateOfDeath":{title:"", using: true, changeTitle: false, info:{Month: "Jan",Day: "1",Year: "1900"}},
+    "serviceDate":{title:"", using: true, changeTitle: false, info:{Month: "Jan",Day: "1",Year: "1900"}},
+    "timeOfService":{title:"", using: true, changeTitle: false, info:""},
+    "locationOfService":{title:"", using: true, changeTitle: false, info:""},
+    "obituary":{title:"", using: true, changeTitle: false, info:""},
+    "scripture":{title:"", using: true, changeTitle: false, info:""},
+    "acknowlegements":{title:"", using: true, changeTitle: false, info:""},
+    "poem":{title:"", using: true, changeTitle: false, info:""},
+    "arrangedBy":{title:"", using: true, changeTitle: false, info:""},
+
+
+
+
+
+
+
 
   
   };
